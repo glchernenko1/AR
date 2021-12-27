@@ -74,4 +74,13 @@ public class OnboardingScript : MonoBehaviour
         isLoggedIn = true;
         control_panel.DOAnchorPos(new Vector2(0, -320), 0f);
     }
+
+    public void UnLoggedIn()
+    {
+        login.DOAnchorPos(new Vector2(0, 0), 1f);
+        registration.DOAnchorPos(new Vector2(0, 0), 1f);
+
+        isLoggedIn = false;
+        control_panel.DOAnchorPos(new Vector2(0, 0), 0f);
+    }
 }

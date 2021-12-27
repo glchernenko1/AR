@@ -5,20 +5,32 @@ using UnityEngine;
 public class Unlocker : MonoBehaviour
 {
     public int index;
-    LoadCollectionScript lcs = new LoadCollectionScript();
     bool first = true;
 
-    private void Awake()
+    public void Update()
     {
         if (!first)
-            lcs.setOpened(index);
+        {
+            Debug.Log("index: "+index);
+            APIcontrol.SaveObject(index);
+            first = true;
+        }
+    }
+
+    public void Start()
+    {
         first = false;
     }
 
-    public void TestWrapper()
+    /*public void Awake()
     {
-       /* Wrapper wrapper = new Wrapper();
-        var tmp = wrapper.Login("Tester33", "123123");
-        Debug.Log(tmp);*/
-    }
+        Debug.Log("Awake" + index);
+        if (!first)
+        {
+            Debug.Log("Awake");
+            APIcontrol.SaveObject(index);
+        }
+            //saveObject.GetComponent<APIcontrol>().SaveObject(index);
+        first = false;
+    }*/
 }
