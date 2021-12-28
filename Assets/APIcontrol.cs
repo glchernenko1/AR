@@ -9,6 +9,9 @@ public class APIcontrol : MonoBehaviour
     public void Start()
     {
         login = PlayerPrefs.GetString("username");
+        SaveObject(0);
+        SaveObject(1);
+        SaveObject(2);
         if (login != "")
         {
             Invoke("Next", 0.01f);

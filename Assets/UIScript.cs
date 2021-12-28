@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class UIScript : MonoBehaviour
 {
-    public RectTransform AR_panel, main_panel, collection_panel, profile_panel;
+    public RectTransform AR_panel, main_panel, collection_panel, collection_element_panel, profile_panel;
     public RectTransform control_panel;
     public Button main_button;
     public Button collection_button;
@@ -113,5 +113,15 @@ public class UIScript : MonoBehaviour
     {
         Debug.Log("I am awawke!");
         //SelectMain();
+    }
+
+    public void removeInfo()
+    {
+        collection_element_panel.DOAnchorPos(new Vector2(0, -1000), 0.5f);
+        var child = collection_element_panel.GetChild(collection_element_panel.childCount - 1);
+        Destroy(child.gameObject);
+            
+        control_panel.DOAnchorPos(new Vector2(0, -320), 0.5f);
+        collection_panel.DOAnchorPos(new Vector2(0, 0), 0.5f);
     }
 }
